@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>YOLOv3 Object Detection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,300,500" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{% static 'main.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container row main-container">
+      <div class="col s12 dd-container">
+        <div class="card dd-card">
+          <div class="card-content black-text file-field">
+            <div id="drop-container">
+              <i class="material-icons large upload-icon">
+                <img src="https://img.icons8.com/ios/100/000000/drag-and-drop.png"/>
+              </i>
+              <span class="drag-txt"><b>Drag-and-drop image</b></span>
+              <span class="or-txt">(or)</span>
+              <form action="#">
+                <div class="waves-effect waves-light btn" id="browse-container">
+                  <span>Browse</span>
+                  <input type="file" id="browse-button" accept="image/*">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 uf-container">
+        <div class="card uf-card">
+          <img class="card crop" id="img-card-1" />
+        </div>
+        <div class="waves-effect waves-light btn" id="upload-button">
+          <span>Detect Objects</span>
+        </div>
+        <div class="waves-effect waves-light btn" id="go-back">
+          <span>Reset</span>
+        </div>
+      </div>
+      <div class="col s12 dt-container">
+        <div class="center" id="result-text">
+        </div>
+
+        <div class="waves-effect waves-light btn button" id="show">
+          <span>Show Predictions</span>
+        </div>
+      </div>
+        <div class="col s12 it-container">
+          <div class="card it-card">
+            <img id="#img-card-2" src="http://127.0.0.1:8000/object_detection/Object_Detection/static/test.jpeg" class="center-1"/>
+          </div>
+          <div class="waves-effect waves-light btn button" id="go-start">
+          <span>Choose a new file</span>
+          </div>
+        </div>
+
+
+      </div>
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <div style="width: 100%; height : 100%; overflow: hidden; align:center;">
+
+              <div class="bar">
+            <div class="circle"></div>
+            <p>Loading</p>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
